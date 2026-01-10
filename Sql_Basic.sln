@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # SQL Server Management Studio Version 21
 VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "CHATGPT EXERCISES", "CHATGPT EXERCISES\CHATGPT EXERCISES.ssmssqlproj", "{4F78C7D5-8C98-E3A8-9279-1AE18D5ABFDE}"
-EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "CONSTRAINTS", "CONSTRAINTS\CONSTRAINTS.ssmssqlproj", "{580A5552-0ED2-7161-0D37-EB91A7834683}"
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "JOIN", "JOIN\JOIN.ssmssqlproj", "{DC4320B5-8FAD-7201-547A-E1E80C07F5F0}"
@@ -17,19 +15,21 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQL HOUSE FINANCES", "SQL H
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQL Variable", "SQL Variable\SQL Variable.ssmssqlproj", "{27E3F06B-7337-BFA0-F240-8ECD2646DFA1}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "CHATGPT EXERCISES", "CHATGPT_EXERCISES\CHATGPT EXERCISES.ssmssqlproj", "{EAEAF6D9-2A27-D5DA-F014-116F4A50F1E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4F78C7D5-8C98-E3A8-9279-1AE18D5ABFDE}.Default|Default.ActiveCfg = Default
 		{580A5552-0ED2-7161-0D37-EB91A7834683}.Default|Default.ActiveCfg = Default
 		{DC4320B5-8FAD-7201-547A-E1E80C07F5F0}.Default|Default.ActiveCfg = Default
 		{650DC149-F296-BAA4-AE1E-B1E732E9015A}.Default|Default.ActiveCfg = Default
 		{AA2C4534-6E44-C354-CC9C-FA7C8EDBEAA9}.Default|Default.ActiveCfg = Default
 		{3ED8C20C-7D0C-3847-8DC3-B33449B92C56}.Default|Default.ActiveCfg = Default
 		{27E3F06B-7337-BFA0-F240-8ECD2646DFA1}.Default|Default.ActiveCfg = Default
-		{16FEF9F5-FCAD-4E10-8D64-A2F008C516B8}.Default|Default.ActiveCfg = Default
+		{EC33DDD7-0BB4-4F3C-905A-2358C6C6DAD4}.Default|Default.ActiveCfg = Default
+		{EAEAF6D9-2A27-D5DA-F014-116F4A50F1E0}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
