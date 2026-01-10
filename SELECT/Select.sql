@@ -16,5 +16,5 @@
 
 -- SELECT
 
-
+select * from dbo.Person
 -- ORDER BY 
