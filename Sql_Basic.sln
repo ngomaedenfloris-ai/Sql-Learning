@@ -17,6 +17,8 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQL Variable", "SQL Variabl
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "CHATGPT EXERCISES", "CHATGPT_EXERCISES\CHATGPT EXERCISES.ssmssqlproj", "{EAEAF6D9-2A27-D5DA-F014-116F4A50F1E0}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQLPractise_Database", "SQLPractise_Database\SQLPractise_Database.ssmssqlproj", "{6B9908BB-1EF0-ECA7-5A22-D27DBC80999F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
@@ -28,8 +30,9 @@ Global
 		{AA2C4534-6E44-C354-CC9C-FA7C8EDBEAA9}.Default|Default.ActiveCfg = Default
 		{3ED8C20C-7D0C-3847-8DC3-B33449B92C56}.Default|Default.ActiveCfg = Default
 		{27E3F06B-7337-BFA0-F240-8ECD2646DFA1}.Default|Default.ActiveCfg = Default
-		{EC33DDD7-0BB4-4F3C-905A-2358C6C6DAD4}.Default|Default.ActiveCfg = Default
 		{EAEAF6D9-2A27-D5DA-F014-116F4A50F1E0}.Default|Default.ActiveCfg = Default
+		{B0D827DC-A180-45A8-98A0-A02BEEDDF684}.Default|Default.ActiveCfg = Default
+		{6B9908BB-1EF0-ECA7-5A22-D27DBC80999F}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
