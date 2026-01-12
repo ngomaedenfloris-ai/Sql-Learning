@@ -1,4 +1,4 @@
-Use Master
+Use master
 go
 
 CREATE DATABASE [SQLPractice]

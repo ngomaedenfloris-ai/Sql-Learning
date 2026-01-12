@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.Build.Sql">
+  <PropertyGroup>
+    <Name>SQLPractise_Database</Name>
+    <TargetDatabaseName>SQLPractise_Database</TargetDatabaseName>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.Build.Sql">
+  <PropertyGroup>
+    <Name>SQL BASIC</Name>
+    <TargetDatabaseName>SQL_BASIC</TargetDatabaseName>
+  </PropertyGroup>
+</Project>

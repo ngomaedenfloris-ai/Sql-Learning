@@ -105,25 +105,44 @@ Go
 Select * from FinanceApp.Debts
 Go 
 
---------- EXERCISE - INSERT DATA USING VARIABLE
+--------- EXERCISE 9 - INSERT DATA USING VARIABLE
+-- Instructions:
+-- 1. Declare @FelixID INT and assign it Felix's ClientID
+-- 2. Declare @Amount MONEY and assign 5000
+-- 3. Declare @Reference VARCHAR(50) and assign 'Debt2026'
+-- 4. Insert a row into FinanceApp.Debts using these variables
+
 
 Declare @FelixID INT;
 Declare @Amount MONEY;
-Declare @References VARCHAR(50) ;
+Declare @Reference VARCHAR(50)
  
-
  Select @FelixID = ClientID
  From FinanceApp.Clients
  Where FirstName = 'Felix';
+ 
 
- Insert into FinanceApp.Clients( ClientID, Amount, References)
+ Set @Amount = 5000
+ Set @Reference = 'Debt2026'
+
+ Insert into FinanceApp.Debts( ClientID, Amount, Reference)
  Values 
  (
- @FelixID, @Amount, @References
+ @FelixID, @Amount, @Reference
  );
 
- Select * from FinanceApp.Clients 
+ Select * from FinanceApp.Debts
  Where ClientID = @FelixID; 
+
+ ------- EXERCISE 10 - Using Table Variable for Multiple Debts
+ -- Instructions:
+-- 1. Declare a table variable @NewDebts with columns ClientID, Amount, Reference
+-- 2. Insert 2-3 sample debts into @NewDebts
+-- 3. Insert all rows from @NewDebts into FinanceApp.Debts
+-- 4. Check the contents of FinanceApp.Debts
+
+
+
 
 
 

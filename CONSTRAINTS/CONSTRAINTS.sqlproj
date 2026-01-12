@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.Build.Sql">
+  <PropertyGroup>
+    <Name>CONSTRAINTS</Name>
+    <TargetDatabaseName>CONSTRAINTS</TargetDatabaseName>
+  </PropertyGroup>
+</Project>

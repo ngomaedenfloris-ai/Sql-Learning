@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.Build.Sql">
+  <PropertyGroup>
+    <Name>CHATGPT EXERCISES</Name>
+    <TargetDatabaseName>CHATGPT_EXERCISES</TargetDatabaseName>
+  </PropertyGroup>
+</Project>

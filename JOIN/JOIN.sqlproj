@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.Build.Sql">
+  <PropertyGroup>
+    <Name>JOIN</Name>
+    <TargetDatabaseName>JOIN</TargetDatabaseName>
+  </PropertyGroup>
+</Project>

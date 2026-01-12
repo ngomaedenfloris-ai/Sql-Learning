@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.Build.Sql">
+  <PropertyGroup>
+    <Name>SELECT</Name>
+    <TargetDatabaseName>SELECT</TargetDatabaseName>
+  </PropertyGroup>
+</Project>
