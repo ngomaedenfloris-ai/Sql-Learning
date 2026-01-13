@@ -260,21 +260,59 @@ Select Memb.MemberID [Member ID],
 Create table dbo.Students
 (
     StudentID Int Identity(1,1),
-    StudentName Varchar(50)
+    StudentName Varchar(50) not null
 )
 Go 
 
 Create table dbo.Exams 
 (
     ExamID Int identity(1,1),
-    Subject Varchar(100)
+    ExamsStudentID Int null,
+    ExamsSubject Varchar(100) not null
 )
 Go 
 
 
+Alter table dbo.Students
+Add Constraint PK_Students Primary key(StudentID)
+Go 
+
+Alter table dbo.Exams
+Add Constraint PK_Exams Primary key(ExamID)
+Go 
+
+Alter table dbo.Exams
+Add Constraint FK_Students_Exams Foreign key(ExamsStudentID) References dbo.Students(StudentID)
+Go 
+
+Insert into dbo.Students(StudentName)
+Values 
+('Lisa'),
+('Lola'),
+('Margis'),
+('Doris');
+Go 
+
+Insert Into dbo.Exams(ExamsStudentID, ExamsSubject)
+Values 
+(1,'French'),
+(Null, 'Science'),
+(3, 'Economics'),
+(Null, 'Latin');
+Go
+
+Select * from dbo.Students
+Select * from dbo.Exams
+
+Select S.StudentName,
+       Sb.ExamsSubject
+
+From dbo.Students as S 
+Right Join Exams as Sb 
+On S.StudentID = Sb.ExamsStudentID;
 
 
-
+ 
 
 
 
