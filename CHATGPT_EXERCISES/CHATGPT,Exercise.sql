@@ -178,3 +178,62 @@ From dbo.Orders Ord
 Left join dbo.Customers Cust 
 On Cust.CustomerID = Ord.OrderCustomerID
 Go 
+
+------EXERCISE 4 – LEFT JOIN (Finding Missing Data)
+-- Story
+-- A library wants to find members who have never borrowed a book.
+-- Your Tasks
+-- Create Members(MemberID, MemberName)
+-- Create Loans(LoanID, MemberID, BookTitle)
+
+-- Insert:
+-- Members with loans
+-- Members without loans
+-- Use a LEFT JOIN and filter to show:
+-- Only members who never borrowed any book
+
+
+Create table dbo.Members
+(
+    MemberID Int Identity(1,1) Primary Key,
+    MemberName Varchar(50)
+)
+Go 
+
+Insert into dbo.Members(MemberName)
+Values 
+('Gloria'),
+('Magali'),
+('Lisa'),
+('Margis'),
+('Malvin');
+Go 
+
+Create table dbo.Loans
+(
+    LoanID Int Identity(1,1) Primary Key,
+    LoanMemberID Int null Foreign Key References dbo.Loans(LoanID),
+    BookTitle Varchar(100)
+)
+Go 
+
+Insert into dbo.Loans(LoanMemberID, BookTitle)
+Values 
+(1, 'Love Is Magic'),
+(2, 'Africa Best Dish'),
+(Null, 'Best Image'),
+(3, 'Economics'),
+(Null, 'The Paradise');
+Go 
+
+Select Memb.MemberID [Member ID],
+       Ls.LoanID [Loan ID],
+       Ls.LoanMemberID[Loan Member ID],
+       Memb.MemberName [Member Name],
+       Bt.BookTitle [Book Title]
+
+       From dbo.Loans Ls 
+       Left Join dbo.Members Memb
+       On Ls.LoanID = Ls.LoanMemberID
+       Go 
+
