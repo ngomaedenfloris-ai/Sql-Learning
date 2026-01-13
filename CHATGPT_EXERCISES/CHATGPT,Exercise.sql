@@ -312,6 +312,68 @@ Right Join Exams as Sb
 On S.StudentID = Sb.ExamsStudentID;
 
 
+----EXERCISE 6 – RIGHT JOIN (Understanding Symmetry)
+-- A company tracks invoices and payments. Some payments were logged before invoice data was finalized.
+-- Your Tasks
+-- Create Invoices(InvoiceID, InvoiceAmount)
+-- Create Payments(PaymentID, InvoiceID, PaymentAmount)
+-- Insert:
+-- Payments without matching invoices
+-- Write a RIGHT JOIN showing:
+-- InvoiceAmount
+-- PaymentAmount
+
+CREATE TABLE dbo.Invoices 
+(
+    InvoiceID INT IDENTITY(1,1),
+    InvoiceAmount MONEY NOT NULL
+)
+GO 
+
+CREATE TABLE dbo.Payments
+(
+    PaymentID INT IDENTITY(1,1),
+    PaymentInvoiceID INT NULL,
+    PaymentAmount MONEY NOT NULL
+)
+GO
+
+ALTER TABLE dbo.Invoices
+ADD CONSTRAINT PK_Invoices PRIMARY KEY(InvoiceID)
+GO
+
+ALTER TABLE dbo.Payments
+ADD CONSTRAINT PK_Payments PRIMARY KEY(PaymentID)
+GO
+
+ALTER TABLE dbo.Payments
+ADD CONSTRAINT FK_Invoices_Payments FOREIGN KEY(PaymentInvoiceID) REFERENCES dbo.Invoices(InvoiceID)
+GO
+
+INSERT into dbo.Invoices(InvoiceAmount)
+VALUES
+(5000),
+(10000),
+(7000),
+(2000);
+GO
+
+INSERT into dbo.Payments(PaymentInvoiceID, PaymentAmount)
+VALUES
+(null, 4000),
+(2, 10000),
+(null, 6500),
+(4, 2000);
+GO
+
+SELECT INV.InvoiceAmount,
+       PMT.PaymentAmount
+
+FROM dbo.Invoices as INV 
+RIGHT JOIN dbo.Payments as PMT
+ON INV.InvoiceID = PMT.PaymentInvoiceID
+GO
+      
  
 
 
