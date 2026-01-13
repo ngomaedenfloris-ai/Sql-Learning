@@ -373,7 +373,9 @@ FROM dbo.Invoices as INV
 RIGHT JOIN dbo.Payments as PMT
 ON INV.InvoiceID = PMT.PaymentInvoiceID
 GO
-      
+
+Drop table dbo.Invoices
+go
  
 
 
