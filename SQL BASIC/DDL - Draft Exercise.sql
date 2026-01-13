@@ -85,18 +85,13 @@ go
 
 
 alter table Client.Client
-
 add constraint PK_Client
-
 primary key(ClientId)
 go
 
 alter table Client.Client
-
 add constraint FK_Divoce_Client
-
 foreign key(DivorceID)
-
 references Client.Divorce(DivorceId)
 go
 

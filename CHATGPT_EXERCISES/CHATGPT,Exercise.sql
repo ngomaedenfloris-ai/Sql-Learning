@@ -259,36 +259,19 @@ Select Memb.MemberID [Member ID],
 
 Create table dbo.Students
 (
-    StudentID Int primary key Identity(1,1),
+    StudentID Int Identity(1,1),
     StudentName Varchar(50)
 )
-Go 
-Select * from dbo.Students
-Go 
-
-Insert Into dbo.Students(StudentName)
-Values 
-('Lisa'),
-('Magali'),
-('Felix'),
-('Margis');
 Go 
 
 Create table dbo.Exams 
 (
-    ExamID Int primary key identity(1,1),
+    ExamID Int identity(1,1),
     Subject Varchar(100)
-    
 )
 Go 
 
-Insert into dbo.Exams(Subject)
-Values 
-('French'),
-('Science'),
-('Latin'),
-('Economics');
-Go 
+
 
 
 
