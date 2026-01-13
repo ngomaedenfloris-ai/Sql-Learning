@@ -374,9 +374,67 @@ RIGHT JOIN dbo.Payments as PMT
 ON INV.InvoiceID = PMT.PaymentInvoiceID
 GO
 
-Drop table dbo.Invoices
-go
- 
+------- EXERCISE 7 – FULL JOIN (Everything from Both Sides)
+
+-- Story
+-- Two systems track employees: HR and Security. Some employees exist in only one system.
+-- Your Tasks
+-- Create HR_Employees(EmployeeID, Name)
+-- Create Security_Employees(EmployeeID, Name)
+-- Insert:
+-- Employees in both tables
+-- Employees in only one table
+-- Write a FULL JOIN showing:
+-- EmployeeID
+-- HR name
+-- Security name
+
+CREATE TABLE dbo.HR_Employees
+(
+    EmployeeID INT IDENTITY(1,1),
+    [Name] VARCHAR(50) NOT NULL
+);
+GO
+
+CREATE TABLE dbo.Security_Employees
+(
+    EmployeeID INT IDENTITY(1,1),
+    [Name] VARCHAR(50) NOT NULL
+);
+GO
+
+ALTER TABLE dbo.HR_Employees
+ADD CONSTRAINT PK_HR_Employees PRIMARY KEY(EmployeeID)
+go  
+
+ALTER TABLE dbo.Security_Employees
+ADD CONSTRAINT PK_Security_Employees PRIMARY KEY(EmployeeID)
+GO
+
+
+INSERT into dbo.HR_Employees(Name)
+VALUES
+('Magali'),
+('Dorien'),
+('Lisa'),
+('Charly'),
+('Jude'),
+('Karl');
+GO
+
+INSERT into dbo.Security_Employees(Name)
+VALUES
+('Charly'),
+('Karl'),
+('George'),
+('Felix');
+GO
+
+SELECT 
+
+
+ SELECT * FROM dbo.HR_Employees
+ SELECT * FROM dbo.Security_Employees
 
 
 
