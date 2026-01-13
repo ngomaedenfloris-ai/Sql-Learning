@@ -141,6 +141,8 @@ Declare @Reference VARCHAR(50)
 -- 3. Insert all rows from @NewDebts into FinanceApp.Debts
 -- 4. Check the contents of FinanceApp.Debts
 
+------------------s
+
 
 
 
