@@ -43,6 +43,8 @@ Create table dbo.Enrollments
 )
 Go 
 
+
+
 Insert into dbo.Enrollments(EnrollmentCourseName, EnrollementStudentId)
 Values 
 ('Legal Practice', 1),
@@ -209,10 +211,15 @@ Values
 ('Malvin');
 Go 
 
+Select * from dbo.Members
+Go
+Drop table dbo.Members
+go
+
 Create table dbo.Loans
 (
     LoanID Int Identity(1,1) Primary Key,
-    LoanMemberID Int null Foreign Key References dbo.Loans(LoanID),
+    LoanMemberID Int null Foreign Key References dbo.Members(MemberID),
     BookTitle Varchar(100)
 )
 Go 
@@ -222,7 +229,7 @@ Values
 (1, 'Love Is Magic'),
 (2, 'Africa Best Dish'),
 (Null, 'Best Image'),
-(3, 'Economics'),
+(4, 'Economics'),
 (Null, 'The Paradise');
 Go 
 
@@ -230,10 +237,62 @@ Select Memb.MemberID [Member ID],
        Ls.LoanID [Loan ID],
        Ls.LoanMemberID[Loan Member ID],
        Memb.MemberName [Member Name],
-       Bt.BookTitle [Book Title]
+       ls.BookTitle [Book Title]
 
        From dbo.Loans Ls 
        Left Join dbo.Members Memb
        On Ls.LoanID = Ls.LoanMemberID
        Go 
+
+---- EXERCISE 5 – RIGHT JOIN (Same Logic, Different Perspective)
+--        Story
+-- A school tracks exam results. Some exams exist even if no student took them yet.
+-- Your Tasks
+-- Create Students(StudentID, StudentName)
+-- Create Exams(ExamID, StudentID, Subject)
+-- Insert:
+-- Exams without students
+-- Exams with students-- Write a RIGHT JOIN listing:
+-- StudentName
+-- Subject
+-- Ensure exams with no students still appear.
+
+Create table dbo.Students
+(
+    StudentID Int primary key Identity(1,1),
+    StudentName Varchar(50)
+)
+Go 
+Select * from dbo.Students
+Go 
+
+Insert Into dbo.Students(StudentName)
+Values 
+('Lisa'),
+('Magali'),
+('Felix'),
+('Margis');
+Go 
+
+Create table dbo.Exams 
+(
+    ExamID Int primary key identity(1,1),
+    Subject Varchar(100)
+    
+)
+Go 
+
+Insert into dbo.Exams(Subject)
+Values 
+('French'),
+('Science'),
+('Latin'),
+('Economics');
+Go 
+
+
+
+
+
+
 
