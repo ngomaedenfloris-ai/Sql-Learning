@@ -389,19 +389,25 @@ GO
 -- HR name
 -- Security name
 
+IF OBJECT_ID('dbo.HR_Employees','u') is not NULL
+DROP TABLE dbo.HR_Employees
 CREATE TABLE dbo.HR_Employees
 (
-    EmployeeID INT IDENTITY(1,1),
+    EmployeeID INT not null,
     [Name] VARCHAR(50) NOT NULL
 );
 GO
 
+
+IF OBJECT_ID('dbo.Security_Employees','u') is not NULL
+DROP TABLE dbo.Security_Employees
 CREATE TABLE dbo.Security_Employees
 (
-    EmployeeID INT IDENTITY(1,1),
+    EmployeeID INT not null,
     [Name] VARCHAR(50) NOT NULL
 );
 GO
+
 
 ALTER TABLE dbo.HR_Employees
 ADD CONSTRAINT PK_HR_Employees PRIMARY KEY(EmployeeID)
@@ -412,22 +418,22 @@ ADD CONSTRAINT PK_Security_Employees PRIMARY KEY(EmployeeID)
 GO
 
 
-INSERT into dbo.HR_Employees(Name)
+INSERT into dbo.HR_Employees(EmployeeID, [Name])
 VALUES
-('Magali'),
-('Dorien'),
-('Lisa'),
-('Charly'),
-('Jude'),
-('Karl');
+(1, 'Magali'),
+(2, 'Dorien'),
+(3, 'Lisa'),
+(4, 'Charly'),
+(5, 'Jude'),
+(6, 'Karl');
 GO
 
-INSERT into dbo.Security_Employees(Name)
+INSERT into dbo.Security_Employees(EmployeeID, [Name])
 VALUES
-('Charly'),
-('Karl'),
-('George'),
-('Felix');
+(4, 'Charly'),
+(6, 'Karl'),
+(7, 'George'),
+(8, 'Felix');
 GO
 
 SELECT 
@@ -435,7 +441,12 @@ SELECT
 
  SELECT * FROM dbo.HR_Employees
  SELECT * FROM dbo.Security_Employees
+go 
 
+SELECT h.Name [HR name], 
+       s.Name [Security name]
 
-
+FROM dbo.HR_Employees as h 
+FULL JOIN dbo.Security_Employees as s 
+ON h.EmployeeID = s.EmployeeID
 
