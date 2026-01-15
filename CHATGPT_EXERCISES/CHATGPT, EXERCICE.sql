@@ -467,6 +467,54 @@ ON HR.EmployeeID = SN.EmployeeID
 -- Internal amount
 -- All mismatches must be visible.
 
+Create table dbo.BankTransactions
+(
+TransactionID int not null,
+Amount Money not null
+);
+Go
+
+Alter table dbo.BankTransactions 
+Add constraint PK_BankTransactions primary key(TransactionID)
+Go
+
+Insert into dbo.BankTransactions(TransactionID, Amount)
+Values
+(1, 2000),
+(2, 4500),
+(3, 10000),
+(4, 8000);
+Go
+select * from BankTransactions
+
+
+Create table dbo.InternalTransactions
+(
+TransactionID int not null,
+Amount Money not null
+);
+Go
+
+Alter table dbo.InternalTransactions
+Add constraint PK_InternalTransactions primary key(TransactionID)
+Go
+
+Insert into dbo.InternalTransactions(TransactionID, Amount)
+Values
+(1, 2000),
+(3, 500),
+(4, 8000),
+(5, 5700);
+Go
+select * from InternalTransactions
+
+
+Select BT.Amount [Bank amount],
+       IT.Amount [Internal amount]
+
+From dbo.BankTransactions as BT
+Full join dbo.InternalTransactions as IT
+On BT.TransactionID = IT.TransactionID;
 
 
 
