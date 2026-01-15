@@ -453,4 +453,20 @@ FROM dbo.HR_Employees AS HR
 Full JOIN dbo.Security_Employees AS SN 
 ON HR.EmployeeID = SN.EmployeeID
 
+-------- EXERCISE 8 – FULL JOIN (Data Reconciliation)
+-- Concept Reminder
+-- FULL JOIN is ideal for reconciliation and audits.
+-- Story
+-- An accountant compares bank transactions with internal transaction records.
+-- Your Tasks
+-- Create BankTransactions(TransactionID, Amount)
+-- Create InternalTransactions(TransactionID, Amount)
+-- Insert mismatched records
+-- Write a FULL JOIN to display:
+-- Bank amount
+-- Internal amount
+-- All mismatches must be visible.
+
+
+
 
