@@ -388,65 +388,69 @@ GO
 -- EmployeeID
 -- HR name
 -- Security name
+---------------------------------------------------------------
+-- IF OBJECT_ID('dbo.HR_Employees','u') is not NULL
+-- DROP TABLE dbo.HR_Employees
+-- CREATE TABLE dbo.HR_Employees
+-- (
+--     EmployeeID INT not null,
+--     [Name] VARCHAR(50) NOT NULL
+-- );
+-- GO
 
-IF OBJECT_ID('dbo.HR_Employees','u') is not NULL
-DROP TABLE dbo.HR_Employees
+-- IF OBJECT_ID('dbo.Security_Employees','u') is not NULL
+-- DROP TABLE dbo.Security_Employees
+-- CREATE TABLE dbo.Security_Employees
+-- (
+--     EmployeeID INT not null,
+--     [Name] VARCHAR(50) NOT NULL
+-- );
+--go 
+-----------------------------------------------------------------
+
 CREATE TABLE dbo.HR_Employees
 (
-    EmployeeID INT not null,
+    EmployeeID INT NOT NULL,
     [Name] VARCHAR(50) NOT NULL
-);
+)
 GO
 
-
-IF OBJECT_ID('dbo.Security_Employees','u') is not NULL
-DROP TABLE dbo.Security_Employees
-CREATE TABLE dbo.Security_Employees
+CREATE TABLE dbo.Security_Employees 
 (
-    EmployeeID INT not null,
+    EmployeeID INT NOT NULL,
     [Name] VARCHAR(50) NOT NULL
-);
+)
 GO
 
-
-ALTER TABLE dbo.HR_Employees
+ALTER TABLE dbo.HR_Employees 
 ADD CONSTRAINT PK_HR_Employees PRIMARY KEY(EmployeeID)
-go  
+GO
 
 ALTER TABLE dbo.Security_Employees
 ADD CONSTRAINT PK_Security_Employees PRIMARY KEY(EmployeeID)
 GO
 
-
 INSERT into dbo.HR_Employees(EmployeeID, [Name])
 VALUES
-(1, 'Magali'),
-(2, 'Dorien'),
-(3, 'Lisa'),
-(4, 'Charly'),
-(5, 'Jude'),
-(6, 'Karl');
+(1, 'Sara'),
+(2, 'Patrick'),
+(3, 'Karl'),
+(4, 'Felix');
 GO
 
 INSERT into dbo.Security_Employees(EmployeeID, [Name])
 VALUES
-(4, 'Charly'),
-(6, 'Karl'),
-(7, 'George'),
-(8, 'Felix');
+(2, 'Patrick'),
+(3, 'Karl'),
+(4, 'Felix'),
+(5, 'Jenny');
 GO
 
-SELECT 
+SELECT HR.Name [HR Name],
+       SN.Name [Security Name]
 
+FROM dbo.HR_Employees AS HR 
+Full JOIN dbo.Security_Employees AS SN 
+ON HR.EmployeeID = SN.EmployeeID
 
- SELECT * FROM dbo.HR_Employees
- SELECT * FROM dbo.Security_Employees
-go 
-
-SELECT h.Name [HR name], 
-       s.Name [Security name]
-
-FROM dbo.HR_Employees as h 
-FULL JOIN dbo.Security_Employees as s 
-ON h.EmployeeID = s.EmployeeID
 
