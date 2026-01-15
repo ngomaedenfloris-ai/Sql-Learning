@@ -516,5 +516,106 @@ From dbo.BankTransactions as BT
 Full join dbo.InternalTransactions as IT
 On BT.TransactionID = IT.TransactionID;
 
+---- EXERCISE 9 – SELF JOIN (Table Joins Itself) 
+--A SELF JOIN joins a table to itself using aliases.
+
+--Story
+--Employees have managers, and managers are also employees.
+--Your Tasks
+--Create Employees(EmployeeID, EmployeeName, ManagerID)
+--Insert:
+--Managers
+--Employees reporting to managers
+--Write a SELF JOIN to show:
+--EmployeeName
+--ManagerName
+
+Create table dbo.Employees
+(
+EmployeeID int primary key,
+EmployeeName varchar(50) not null,
+ManagerID int null
+);
+Go 
+
+Insert into dbo.Employees(EmployeeID, EmployeeName, ManagerID)
+Values 
+(1, 'Eden', Null),
+(2, 'magali', 1),
+(3, 'Lisa', 1),
+(4, 'Margis', 2),
+(5, 'Favy', 2),
+(6, 'Florette', 3);
+Go
+
+Select E.EmployeeName [Employee Name],
+       M.EmployeeName [Manager Name]
+
+From dbo.Employees as E
+left join dbo.Employees as M
+On E.EmployeeID = M.ManagerID 
+
+Drop table dbo.Employees
+go 
 
 
+
+select * 
+from HR_Employees
+
+-------------------------------------------------
+
+----------------------------------------------------
+--From
+
+
+--Where
+
+
+--GHSO
+
+---FROM
+--select ----
+--From table
+--From table inner join tableB
+--From table left join tableB
+--From table Cross join tableB
+--from table full join tableB
+--from table union all
+--from table union
+--from table except
+--from table intercept
+--from table self join
+
+
+select * 
+from 
+(
+
+select TeacherId, TeacherName, TeacherSubject 
+from dbo.Teacher
+Where TeacherSubject <> 'Physic'
+
+) as newTeacherTable
+
+------------------------------------------------------
+
+----CTE
+
+--with newTeacherTable
+--as
+--(
+--	select TeacherId, TeacherName, TeacherSubject 
+--	from dbo.Teacher
+--	Where TeacherSubject <> 'Physic'
+--)
+--select * from newTeacherTable
+--------
+--select TeacherSubject
+--from dbo.Teacher
+--where TeacherId in  --and condition
+--(
+--	select t.TeacherId
+--	from dbo.Teacher t
+--	where t.TeacherId = 1
+--);
