@@ -712,3 +712,55 @@ Select * from dbo.Colors
 drop table dbo.Sizes
 Drop table dbo.Colors
 
+-------- EXERCISE 12 – CROSS JOIN (Scenario Simulation)
+-- Concept Reminder
+-- CROSS JOIN is useful for simulations, test data, and scenario planning.
+-- Story
+-- A restaurant wants to see all possible menu combinations of dishes and days.
+-- Your Tasks
+-- Create Dishes(DishName)
+-- Create Days(DayName)
+-- Insert sample data
+-- Write a CROSS JOIN producing:
+-- DishName
+-- DayName
+
+CREATE TABLE dbo.Dishes 
+(
+    DisheID INT PRIMARY KEY IDENTITY(1,1),
+    DisheName VARCHAR(100) NOT NULL
+);
+GO
+
+CREATE TABLE dbo.Days 
+(
+    DayID INT PRIMARY KEY IDENTITY(1,1),
+    DayName VARCHAR(100) NOT NULL
+);
+GO
+
+INSERT into dbo.Dishes(DisheName)
+VALUES
+('Omelette jambon fromage'),
+('Steak aux petit poids'),
+('Crème brûlée'),
+('Crêpes au chocolat');
+GO 
+
+INSERT into dbo.Days(DayName)
+VALUES
+('Monday'),
+('Tuesday'),
+('Wednesday'),
+('Thursday'),
+('Friday');
+GO
+
+select * from dbo.Dishes
+select * from dbo.Days 
+
+SELECT D.DisheName AS [Dishe Name],
+       Dys.DayName AS [Day Name]
+
+FROM dbo.Dishes AS D 
+CROSS JOIN dbo.Days AS Dys 
