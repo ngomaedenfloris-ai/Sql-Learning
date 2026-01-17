@@ -43,3 +43,50 @@ GO
 SELECT CustomerName FROM dbo.RegionA_Customers
 UNION
 SELECT CustomerName FROM dbo.RegionB_Customers 
+
+
+
+----------- EXERCISE 2 – UNION ALL (Combine Including Duplicates)
+
+-- Concept Reminder
+-- UNION ALL combines results and keeps duplicates.
+-- Story
+-- A bookstore tracks online and in-store orders. Some customers ordered in both channels.
+-- Tasks
+-- Create OnlineOrders(OrderID, CustomerName)
+-- Create StoreOrders(OrderID, CustomerName)
+-- Insert overlapping orders
+-- Use UNION ALL to list all orders including duplicates
+
+CREATE TABLE dbo.OnlineOrders 
+(
+    OrderID INT,
+    CustomerName VARCHAR(50) NOT NULL
+);
+GO
+
+CREATE TABLE dbo.StoreOrders
+(
+    OrderID INT,
+    CustomerName VARCHAR(50) NOT NULL
+);
+GO
+
+INSERT into dbo.OnlineOrders(OrderID, CustomerName)
+VALUES
+(1, 'Karl'),
+(2, 'Samy'),
+(3, 'Rock'),
+(4, 'Floris');
+GO
+
+INSERT into dbo.StoreOrders(OrderID, CustomerName)
+VALUES
+(4, 'Floris'),
+(5, 'Jenny'),
+(6, 'Mark');
+GO
+
+SELECT CustomerName FROM dbo.OnlineOrders 
+UNION ALL
+SELECT customerName FROM dbo.StoreOrders 
