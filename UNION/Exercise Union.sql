@@ -90,3 +90,98 @@ GO
 SELECT CustomerName FROM dbo.OnlineOrders 
 UNION ALL
 SELECT customerName FROM dbo.StoreOrders 
+
+------------ EXERCISE 3 – INTERSECT (Find Common Rows)
+
+-- Concept Reminder
+-- INTERSECT returns only rows present in both result sets.
+-- Story
+-- A company wants a marketing list of customers who bought both Product A and Product B.
+-- Tasks
+-- Create ProductA_Customers(CustomerID, CustomerName)
+-- Create ProductB_Customers(CustomerID, CustomerName)
+-- Insert overlapping and non-overlapping customers
+-- Use INTERSECT to list customers who bought both products 
+
+
+CREATE TABLE dbo.ProductA_Customers
+(
+    CustomerID INT,
+    CustomerName VARCHAR(50) NOT NULL
+);
+GO
+
+INSERT dbo.ProductA_Customers(CustomerID, CustomerName)
+VALUES
+(1, 'Magali'),
+(2, 'Lisa'),
+(3, 'Margis'),
+(4, 'Cindy');
+GO
+
+
+CREATE TABLE dbo.ProductB_Customers
+(
+    CustomerID INT,
+    CustomerName VARCHAR(50) NOT NULL
+);
+GO
+
+INSERT dbo.ProductB_Customers(CustomerID, CustomerName)
+VALUES
+(3, 'Margis'),
+(4, 'Cindy'),
+(5, 'Pascal'),
+(6, 'Jenny');
+GO
+
+SELECT CustomerName as [Customer Name] FROM dbo.ProductA_Customers
+INTERSECT
+SELECT CustomerName as [Customer Name] FROM dbo.ProductB_Customers
+
+
+-----EXERCISE 4 – EXCEPT (Find Missing Rows)
+
+-- Concept Reminder
+-- EXCEPT returns rows in the first query not present in the second query.
+-- Story
+-- A gym wants to know which members have not attended the latest fitness class.
+-- Tasks
+-- Create AllMembers(MemberID, MemberName)
+-- Create AttendedClass(MemberID, MemberName)
+-- Insert some overlapping data
+-- Use EXCEPT to list members who did not attend 
+
+
+CREATE TABLE dbo.AllMembers
+(
+    MemberID INT,
+    MemberName VARCHAR(50)
+);
+GO
+
+INSERT dbo.AllMembers(MemberID, MemberName)
+VALUES
+(1, 'Peppin'),
+(2, 'Love'),
+(3, 'Ben'),
+(4, 'Sary');
+GO
+
+CREATE TABLE dbo.AttendedClass
+(
+    MemberID INT,
+    MemberName VARCHAR(50) NOT NULL  
+);
+GO
+
+INSERT dbo.AttendedClass(MemberID, MemberName)
+VALUES
+(4, 'Sary'),
+(5, 'Victoire'), 
+(6, 'Remy');
+GO
+
+SELECT MemberID FROM dbo.AllMembers
+EXCEPT
+SELECT MemberID FROM dbo.AttendedClass
