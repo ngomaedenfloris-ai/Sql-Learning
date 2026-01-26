@@ -7,8 +7,6 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "CONSTRAINTS", "CONSTRAINTS\
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "JOIN", "JOIN\JOIN.ssmssqlproj", "{DC4320B5-8FAD-7201-547A-E1E80C07F5F0}"
 EndProject
-Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SELECT", "SELECT\SELECT.ssmssqlproj", "{650DC149-F296-BAA4-AE1E-B1E732E9015A}"
-EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQL BASIC", "SQL BASIC\SQL BASIC.ssmssqlproj", "{AA2C4534-6E44-C354-CC9C-FA7C8EDBEAA9}"
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQL HOUSE FINANCES", "SQL HOUSE FINANCES\SQL HOUSE FINANCES.ssmssqlproj", "{3ED8C20C-7D0C-3847-8DC3-B33449B92C56}"
@@ -21,6 +19,8 @@ Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SQLPractise_Database", "SQL
 EndProject
 Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "WHERE", "WHERE\WHERE.ssmssqlproj", "{3F1B6C7F-AF14-1862-3E5D-CB3C6DFB9ECD}"
 EndProject
+Project("{4F2E2C19-372F-40D8-9FA7-9D2138C6997A}") = "SELECT", "FROM\SELECT.ssmssqlproj", "{43655DED-A748-BB49-D6B7-7761717612DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Default|Default = Default|Default
@@ -28,14 +28,14 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{580A5552-0ED2-7161-0D37-EB91A7834683}.Default|Default.ActiveCfg = Default
 		{DC4320B5-8FAD-7201-547A-E1E80C07F5F0}.Default|Default.ActiveCfg = Default
-		{650DC149-F296-BAA4-AE1E-B1E732E9015A}.Default|Default.ActiveCfg = Default
 		{AA2C4534-6E44-C354-CC9C-FA7C8EDBEAA9}.Default|Default.ActiveCfg = Default
 		{3ED8C20C-7D0C-3847-8DC3-B33449B92C56}.Default|Default.ActiveCfg = Default
 		{27E3F06B-7337-BFA0-F240-8ECD2646DFA1}.Default|Default.ActiveCfg = Default
 		{EAEAF6D9-2A27-D5DA-F014-116F4A50F1E0}.Default|Default.ActiveCfg = Default
 		{6B9908BB-1EF0-ECA7-5A22-D27DBC80999F}.Default|Default.ActiveCfg = Default
-		{B8818EEE-3131-481D-A716-C4473B6E168C}.Default|Default.ActiveCfg = Default
 		{3F1B6C7F-AF14-1862-3E5D-CB3C6DFB9ECD}.Default|Default.ActiveCfg = Default
+		{DA2B47BE-B8AB-47F8-A9FC-8DF2E1202E1A}.Default|Default.ActiveCfg = Default
+		{43655DED-A748-BB49-D6B7-7761717612DF}.Default|Default.ActiveCfg = Default
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
