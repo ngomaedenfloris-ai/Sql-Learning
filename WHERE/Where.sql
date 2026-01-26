@@ -2,6 +2,16 @@
 USE SQLPractice
 go
 
+| Operator | Meaning          |
+| -------- | ---------------- |
+| =        | equal to         |
+| <>       | not equal to     |
+| >        | greater than     |
+| <        | less than        |
+| >=       | greater or equal |
+| <=       | less or equal    |
+
+
 SELECT [EmployeeID]
       ,[EmployeeName]
       ,[ManagerID]

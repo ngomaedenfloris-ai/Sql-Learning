@@ -34,5 +34,21 @@ FROM [SQLPractice].[dbo].[Products]
 WHERE Price > 100 
  
 
+------- Exercise 2 — Comparison Operators -------
+
+-- Goal
+-- Practice =, <>, >=, <=
+-- Story
+-- You are checking employee salaries.
+-- Tasks
+-- Create table Employees
+-- Insert salaries: 3000, 5000, 7000, 9000
+-- Select employees whose salary is not equal to 5000
+-- Select employees whose salary is greater or equal to 7000
+-- Expected Outcome
+-- First query excludes salary 5000
+-- Second query returns 7000 and 9000 only
+
+
 
 
