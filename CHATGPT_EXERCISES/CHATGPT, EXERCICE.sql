@@ -538,6 +538,11 @@ ManagerID int null
 );
 Go 
 
+ALTER TABLE dbo.Employees
+ADD CONSTRAINT FK_Employees_Manager
+FOREIGN KEY (ManagerID)
+REFERENCES dbo.Employees(EmployeeID);
+
 Insert into dbo.Employees(EmployeeID, EmployeeName, ManagerID)
 Values 
 (1, 'Eden', Null),
@@ -552,8 +557,8 @@ Select E.EmployeeName [Employee Name],
        M.EmployeeName [Manager Name]
 
 From dbo.Employees as E
-left join dbo.Employees as M
-On E.EmployeeID = M.ManagerID 
+LEFT join dbo.Employees as M
+On E.ManagerID = M.EmployeeID;  
 
 Drop table dbo.Employees
 go 
@@ -561,7 +566,7 @@ go
 
 
 select * 
-from HR_Employees
+from dbo.Employees
 
 -------------------------------------------------
 
@@ -619,3 +624,143 @@ Where TeacherSubject <> 'Physic'
 --	from dbo.Teacher t
 --	where t.TeacherId = 1
 --);
+
+--------------------------------------------------------------
+------ EXERCISE 10 – SELF JOIN (Hierarchy Thinking)
+
+-- SELF JOIN allows hierarchical relationships without recursion.
+-- Story
+-- A company tracks mentor relationships between staff.
+-- Your Tasks
+-- Use the same Employees table
+-- Insert mentor relationships
+-- Write a SELF JOIN showing:
+-- EmployeeName
+-- MentorName
+
+ALTER TABLE dbo.Employees
+ADD MentorID INT NULL;
+
+-- SELECT * 
+-- FROM dbo.Employees 
+
+UPDATE dbo.Employees SET MentorID = 1 WHERE EmployeeID IN (2, 3);
+UPDATE dbo.Employees SET MentorID = 2 WHERE EmployeeID IN (4, 5);
+UPDATE dbo.Employees SET MentorID = 3 WHERE EmployeeID = 6;
+GO 
+
+SELECT E.EmployeeName AS [Employee Name],
+       MT.EmployeeName AS [Mentor Name]
+
+FROM dbo.Employees AS E 
+LEFT JOIN dbo.Employees AS MT 
+ON E.MentorID = MT.EmployeeID;
+
+------ EXERCISE 11 – CROSS JOIN (Every Combination)
+
+-- Concept Reminder
+-- A CROSS JOIN returns the Cartesian product: every row combined with every other row.
+-- Story
+-- A clothing brand wants to generate all combinations of sizes and colors.
+-- Your Tasks
+-- Create Sizes(Size)
+-- Create Colors(Color)
+-- Insert at least 3 sizes and 3 colors
+-- Write a CROSS JOIN to list all combinations
+
+CREATE TABLE dbo.Sizes 
+(
+    SizeID INT PRIMARY KEY IDENTITY(1,1),
+    Size VARCHAR(50) NOT NULL
+);
+GO
+
+CREATE TABLE dbo.Colors 
+(
+    ColorID INT PRIMARY KEY IDENTITY(1,1),
+    Color  VARCHAR(50) NOT NULL
+);
+GO
+
+INSERT into dbo.Sizes(Size)
+VALUES
+('XS'),
+('S'),
+('M'),
+('L');
+GO
+
+INSERT into dbo.Colors(Color)
+VALUES
+('Black'),
+('White'),
+('Red'),
+('Green');
+GO
+
+SELECT S.Size,
+       C.Color
+
+FROM dbo.Sizes AS S 
+CROSS JOIN dbo.Colors AS C 
+
+
+
+select * from dbo.Sizes
+Select * from dbo.Colors
+
+drop table dbo.Sizes
+Drop table dbo.Colors
+
+-------- EXERCISE 12 – CROSS JOIN (Scenario Simulation)
+-- Concept Reminder
+-- CROSS JOIN is useful for simulations, test data, and scenario planning.
+-- Story
+-- A restaurant wants to see all possible menu combinations of dishes and days.
+-- Your Tasks
+-- Create Dishes(DishName)
+-- Create Days(DayName)
+-- Insert sample data
+-- Write a CROSS JOIN producing:
+-- DishName
+-- DayName
+
+CREATE TABLE dbo.Dishes 
+(
+    DisheID INT PRIMARY KEY IDENTITY(1,1),
+    DisheName VARCHAR(100) NOT NULL
+);
+GO
+
+CREATE TABLE dbo.Days 
+(
+    DayID INT PRIMARY KEY IDENTITY(1,1),
+    DayName VARCHAR(100) NOT NULL
+);
+GO
+
+INSERT into dbo.Dishes(DisheName)
+VALUES
+('Omelette jambon fromage'),
+('Steak aux petit poids'),
+('Crème brûlée'),
+('Crêpes au chocolat');
+GO 
+
+INSERT into dbo.Days(DayName)
+VALUES
+('Monday'),
+('Tuesday'),
+('Wednesday'),
+('Thursday'),
+('Friday');
+GO
+
+select * from dbo.Dishes
+select * from dbo.Days 
+
+SELECT D.DisheName AS [Dishe Name],
+       Dys.DayName AS [Day Name]
+
+FROM dbo.Dishes AS D 
+CROSS JOIN dbo.Days AS Dys 
