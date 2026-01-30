@@ -50,5 +50,34 @@ WHERE Price > 100
 -- Second query returns 7000 and 9000 only
 
 
+CREATE TABLE dbo.Employees2
+(
+    EmployeeID INT,
+    EmployeeName VARCHAR(50),
+    Salary INT
+);
+GO
+
+INSERT INTO dbo.Employees2(EmployeeID, EmployeeName, Salary)
+VALUES
+(1, 'Favy', 3000),
+(2, 'Rolly', 5000),
+(3, 'Emma', 7000),
+(4, 'Floris', 9000);
+GO
+
+SELECT [EmployeeID],
+       [EmployeeName],
+       [salary]
+
+FROM [SQLPractice].[dbo].[Employees2]
+WHERE Salary <> 5000 
+
+SELECT [EmployeeID],
+       [EmployeeName],
+       [salary]
+
+FROM [SQLPractice].[dbo].[Employees2]
+WHERE Salary >= 7000 
 
 
